@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>MAPA AINDA — 8 perguntas para descobrir o que se repete</title>
+<meta name="description" content="Você sabe o que não quer mais. Mas sabe o que repete? Um mapa reflexivo sobre os padrões que aparecem na sua vida amorosa.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <span class="wordmark">MAPA <em>AINDA</em></span>
+    <div class="progress-wrap" id="progressWrap" hidden>
+      <span class="progress-label" id="progressLabel">Pergunta 1 de 8</span>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </header>
+
+  <main id="screens">
+
+    <!-- ============ TELA 1 — ABERTURA ============ -->
+    <section id="screen-intro" class="screen is-active">
+      <div class="screen-inner intro-inner">
+        <p class="eyebrow">mapa reflexivo · AINDA</p>
+        <h1 class="intro-title">Você sabe o que não quer mais.<br>Mas sabe o que repete?</h1>
+        <p class="intro-subtitle">8 perguntas para descobrir qual padrão pode estar influenciando sua vida amorosa.</p>
+
+        <div class="intro-divider" aria-hidden="true"></div>
+
+        <p class="intro-note">
+          Não existem respostas certas ou erradas.<br>
+          Responda pensando no que você realmente costuma fazer — e não no que gostaria de fazer.
+        </p>
+
+        <button class="btn btn-primary" id="btnStart" type="button">Começar meu mapa</button>
+
+        <p class="intro-disclaimer">Uma experiência educativa e reflexiva. Não é uma avaliação psicológica.</p>
+      </div>
+    </section>
+
+    <!-- ============ TELA 2 — PERGUNTAS (dinâmica) ============ -->
+    <section id="screen-question" class="screen">
+      <div class="screen-inner question-inner">
+        <h2 class="question-text" id="questionText"></h2>
+        <div class="options-list" id="optionsList" role="radiogroup"></div>
+      </div>
+    </section>
+
+    <!-- ============ TELA 3 — TRANSIÇÃO ============ -->
+    <section id="screen-transition" class="screen">
+      <div class="screen-inner transition-inner">
+        <div class="transition-mark" aria-hidden="true"></div>
+        <p class="transition-text" id="transitionText">compondo o seu mapa</p>
+      </div>
+    </section>
+
+    <!-- ============ TELA 4 — RESULTADO ============ -->
+    <section id="screen-result" class="screen">
+      <div class="screen-inner result-inner">
+        <p class="eyebrow">mapa AINDA · seu resultado</p>
+
+        <div id="resultLead"></div>
+
+        <div class="result-divider" aria-hidden="true"></div>
+
+        <div id="resultBody"></div>
+
+        <div class="score-bars" id="scoreBars"></div>
+
+        <div class="result-disclaimer">
+          <p>Seu resultado não é uma sentença. Ele não define quem você é.</p>
+          <p>O MAPA AINDA mostra apenas um movimento que pode estar aparecendo na sua forma de se relacionar neste momento. Padrões podem ser percebidos, questionados e transformados.</p>
+        </div>
+
+        <button class="btn btn-primary" id="btnToWhatsapp" type="button">Continuar</button>
+      </div>
+    </section>
+
+    <!-- ============ TELA 5 — CAPTURA WHATSAPP ============ -->
+    <section id="screen-whatsapp" class="screen">
+      <div class="screen-inner whatsapp-inner">
+        <p class="eyebrow">seu mapa não termina aqui</p>
+        <h2 class="section-title">Continue essa conversa</h2>
+        <p class="section-text">Se essa reflexão fez sentido para você, queremos continuar essa conversa.</p>
+        <p class="section-text">Receba no WhatsApp uma reflexão exclusiva sobre o seu resultado e acompanhe as próximas conversas do AINDA.</p>
+
+        <form id="whatsappForm" class="form" novalidate>
+          <label class="field">
+            <span class="field-label">Nome</span>
+            <input type="text" id="fieldName" name="nome" autocomplete="name" required>
+          </label>
+
+          <label class="field">
+            <span class="field-label">WhatsApp</span>
+            <input type="tel" id="fieldWhatsapp" name="whatsapp" autocomplete="tel" placeholder="(00) 00000-0000" required>
+          </label>
+
+          <label class="field field-checkbox">
+            <input type="checkbox" id="fieldConsent" name="consentimento" required>
+            <span>Concordo em receber mensagens, conteúdos e informações sobre o AINDA pelo WhatsApp. Posso cancelar a qualquer momento.</span>
+          </label>
+
+          <p class="field-error" id="formError" hidden></p>
+
+          <button class="btn btn-primary" type="submit">Quero receber no WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ TELA 6 — SEGMENTAÇÃO ============ -->
+    <section id="screen-segmentation" class="screen">
+      <div class="screen-inner segmentation-inner">
+        <p class="eyebrow">mais um passo</p>
+        <h2 class="section-title">Qual conversa você gostaria de conhecer melhor?</h2>
+
+        <div class="options-list" id="segmentationOptions" role="radiogroup"></div>
+      </div>
+    </section>
+
+    <!-- ============ TELA 7 — FINAL ============ -->
+    <section id="screen-final" class="screen">
+      <div class="screen-inner final-inner">
+        <p class="final-text">Agora você conhece um pouco mais sobre o seu jeito de se relacionar.</p>
+        <p class="final-question">Mas uma pergunta continua:<br>o que você vai fazer com aquilo que descobriu?</p>
+
+        <div class="final-divider" aria-hidden="true"></div>
+
+        <p class="brand-wordmark">AINDA.</p>
+        <p class="brand-signature">Para quem ainda quer amar,<br>mas não quer mais viver qualquer relação.</p>
+
+        <a class="btn btn-primary" id="btnGroup" href="#" target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a>
+        <a class="btn btn-secondary" id="btnFinal" href="#" target="_blank" rel="noopener">Conhecer o AINDA no Instagram</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
